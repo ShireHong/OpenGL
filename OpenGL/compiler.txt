@@ -1,0 +1,5 @@
+g++ -g -std=c++17 test.cpp -o main -lglad -lglfw3
+
+
+
+gcc -nostdlib -shared -Wl,-soname,libglew32.dll -Wl,--out-implib,lib/libglew32.dll.a    -o lib/glew32.dll src/glew.o -L/mingw/lib -lglu32 -lopengl32 -lgdi32 -luser32 -lkernel32

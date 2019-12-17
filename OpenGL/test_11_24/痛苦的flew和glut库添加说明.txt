@@ -1,0 +1,40 @@
+首先添加的是glew这个库，因为使用的是mingw编译，所以使用的库是.a .dll形式，一开始使用的是lib库，这个是给vs用的，所以无法使用，需要从glew上下载源码编译，
+我们要自己编译，命令行cd到glew主目录下，执行这两行：
+1：gcc -DGLEW_NO_GLU -O2 -Wall -W -Iinclude -DGLEW_BUILD -o src/glew.o -c src/glew.c
+2：gcc -shared -Wl,-soname,libglew32.dll-Wl,--out-implib,lib/libglew32.dll.a   -o lib/glew32.dll  src/glew.o -L/mingw/lib -lglu32 -lopengl32 -lgdi32-luser32 -lkernel32
+执行第二个命令时可能报：DllMainCRTStartup这个错，那就更换第二行命令为：
+2：gcc -nostdlib -shared -Wl,-soname,libglew32.dll -Wl,--out-implib,lib/libglew32.dll.a    -o lib/glew32.dll src/glew.o -L/mingw/lib -lglu32 -lopengl32 -lgdi32 -luser32 -lkernel32
+
+然后就在glew主目录的lib文件夹下获取了编译链接用库和运行库：xxx.dll.a和xxx.dll，和freeglut的相关文件一样放好。
+ 
+5：在正式代码文件注意点：头文件glew.h要在freeglut.h前被包含。
+
+正式代码的编译命令：
+g++ main.cpp -o test -I C:\mingw49_32\include-L C:\mingw49_32\lib -lglew32 -lfreeglut -lopengl32
+
+
+这个编译可能不行，会报错误：
+C:\Users\64436\AppData\Local\Temp\cc0tt9Xx.o:test.cpp:(.text+0x1c): undefined reference to `__glutInitWithExit'
+C:\Users\64436\AppData\Local\Temp\cc0tt9Xx.o:test.cpp:(.text+0x38): undefined reference to `__glutCreateWindowWithExit'
+C:\Users\64436\AppData\Local\Temp\cc0tt9Xx.o:test.cpp:(.text+0x53): undefined reference to `__glutCreateMenuWithExit'
+collect2.exe: error: ld returned 1 exit status
+
+
+
+所以还需要下载glut的库，这个库点进去就是进入freeglut，不知道有什么区别，但是解决不了上面个的问题，所以只好找glut的库，通过百度找到一个库的下载地址https://user.xmission.com/~nate/glut.html
+
+
+下载完以后，这样添加
+C:\Windows\SysWOW64
+    └─ glut.dll
+D:\mingw
+    ├─ include
+    │   └─ GL
+    │      └─ glut.h
+    └─ lib
+        └─ glut32.lib
+
+
+GLUT
+编译参数需要加上加-DGLUT_DISABLE_ATEXIT_HACK（也可以在代码里#define GLUT_DISABLE_ATEXIT_HACK）
+链接参数加上-lopengl32 -lglu32 -lglut32

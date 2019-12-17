@@ -1,0 +1,1 @@
+g++ test.cpp -o test  -lglew32 -lglut32 -lopengl32 -lglfw3
