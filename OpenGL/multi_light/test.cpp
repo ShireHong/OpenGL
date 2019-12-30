@@ -20,8 +20,8 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow *window);
 unsigned int loadTexture(const char *path);
 // settings
-const unsigned int SCR_WIDTH = 1200;
-const unsigned int SCR_HEIGHT = 1000;
+const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_HEIGHT = 600;
 
 // camera
 Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
@@ -78,7 +78,7 @@ int main()
 
     // build and compile our shader zprogram
     // ------------------------------------
-    Shader lightshader("multi_light.vs", "multi_light.fs");
+    Shader lightshader("light_caster.vs", "light_caster.fs");
     Shader lampshader("lamp.vs","lamp.fs");
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
@@ -140,20 +140,7 @@ int main()
         glm::vec3( 1.5f,  0.2f, -1.5f),
         glm::vec3(-1.3f,  1.0f, -1.5f)
     };
-    // positions of the point lights
-    glm::vec3 pointLightPositions[] = {
-        glm::vec3( 0.7f,  0.2f,  2.0f),
-        glm::vec3( 2.3f, -3.3f, -4.0f),
-        glm::vec3(-4.0f,  2.0f, -12.0f),
-        glm::vec3( 0.0f,  0.0f, -3.0f)
-    };
 
-    glm::vec3 pointLightColors[] = {
-    glm::vec3(0.4f, 0.7f, 0.1f),
-    glm::vec3(0.4f, 0.7f, 0.1f),
-    glm::vec3(0.4f, 0.7f, 0.1f),
-    glm::vec3(0.4f, 0.7f, 0.1f)
-};
     unsigned int VBO, cubeVAO;
     glGenVertexArrays(1, &cubeVAO);
     glGenBuffers(1, &VBO);
@@ -210,65 +197,41 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // also clear the depth buffer now!
 
         
-		lightshader.use(); 
+		lightshader.use();
+        
+        lightshader.setVec3("light.position",camera.Position);
+        lightshader.setVec3("light.direction", camera.Front);
+        lightshader.setFloat("light.cutOff", glm::cos(glm::radians(12.5f)));
+        lightshader.setFloat("light.outerCutOff", glm::cos(glm::radians(17.5f)));
         lightshader.setVec3("viewPos", camera.Position);
+#if 1
+       // light properties
+        glm::vec3 lightcolor;
+        lightcolor.x = sin(glfwGetTime() * 2.0f);
+        lightcolor.y = sin(glfwGetTime() * 0.7f);
+        lightcolor.z = sin(glfwGetTime() * 1.3f);
+
+        lightshader.setVec3("light.ambient", 0.1f, 0.1f, 0.1f);
+        lightshader.setVec3("light.diffuse", 0.8f, 0.8f, 0.8f);
+        lightshader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
+        lightshader.setFloat("light.constant", 1.0f);
+        lightshader.setFloat("light.linear", 0.09f);
+        lightshader.setFloat("light.quadratic", 0.032f);
         // material properties
         lightshader.setFloat("material.shininess", 64.0f);
+#else
+        // light properties
+        lightshader.setVec3("light.ambient", 1.0f, 1.0f, 1.0f); // note that all light colors are set at full intensity
+        lightshader.setVec3("light.diffuse", 1.0f, 1.0f, 1.0f);
+        lightshader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
 
-        /*
-           Here we set all the uniforms for the 5/6 types of lights we have. We have to set them manually and index 
-           the proper PointLight struct in the array to set each uniform variable. This can be done more code-friendly
-           by defining light types as classes and set their values in there, or by using a more efficient uniform approach
-           by using 'Uniform buffer objects', but that is something we'll discuss in the 'Advanced GLSL' tutorial.
-        */
-        // directional light
-        lightshader.setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
-        lightshader.setVec3("dirLight.ambient", 0.5f, 0.5f, 0.5f);
-        lightshader.setVec3("dirLight.diffuse", 1.0f, 1.0f, 1.0f);
-        lightshader.setVec3("dirLight.specular", 1.0f, 1.0f, 1.0f);
-        // point light 1
-        lightshader.setVec3("pointLights[0].position", pointLightPositions[0]);
-        lightshader.setVec3("pointLights[0].ambient", pointLightColors[0]);
-        lightshader.setVec3("pointLights[0].diffuse", pointLightColors[0]);
-        lightshader.setVec3("pointLights[0].specular", pointLightColors[0]);
-        lightshader.setFloat("pointLights[0].constant", 1.0f);
-        lightshader.setFloat("pointLights[0].linear", 0.07f);
-        lightshader.setFloat("pointLights[0].quadratic", 0.017);
-        // point light 2
-        lightshader.setVec3("pointLights[1].position", pointLightPositions[1]);
-        lightshader.setVec3("pointLights[1].ambient", pointLightColors[1]);
-        lightshader.setVec3("pointLights[1].diffuse", pointLightColors[1]);
-        lightshader.setVec3("pointLights[1].specular", pointLightColors[1]);
-        lightshader.setFloat("pointLights[1].constant", 1.0f);
-        lightshader.setFloat("pointLights[1].linear", 0.07f);
-        lightshader.setFloat("pointLights[1].quadratic", 0.017);
-        // point light 3
-        lightshader.setVec3("pointLights[2].position", pointLightPositions[2]);
-        lightshader.setVec3("pointLights[2].ambient", pointLightColors[2]);
-        lightshader.setVec3("pointLights[2].diffuse", pointLightColors[2]);
-        lightshader.setVec3("pointLights[2].specular", pointLightColors[2]);
-        lightshader.setFloat("pointLights[2].constant", 1.0f);
-        lightshader.setFloat("pointLights[2].linear", 0.07f);
-        lightshader.setFloat("pointLights[2].quadratic", 0.017f);
-        // point light 4
-        lightshader.setVec3("pointLights[3].position", pointLightPositions[3]);
-        lightshader.setVec3("pointLights[3].ambient", pointLightColors[3]);
-        lightshader.setVec3("pointLights[3].diffuse", pointLightColors[3]);
-        lightshader.setVec3("pointLights[3].specular", pointLightColors[3]);
-        lightshader.setFloat("pointLights[3].constant", 1.0f);
-        lightshader.setFloat("pointLights[3].linear", 0.09);
-        lightshader.setFloat("pointLights[3].quadratic", 0.032);
-        // spotLight
-        lightshader.setVec3("spotLight.position", camera.Position);
-        lightshader.setVec3("spotLight.direction", camera.Front);
-        lightshader.setVec3("spotLight.ambient", 0.0f, 0.0f, 0.0f);
-        lightshader.setVec3("spotLight.diffuse", 0.0f, 1.0f, 0.0f);
-        lightshader.setVec3("spotLight.specular", 0.0f, 1.0f, 0.0f);
-        lightshader.setFloat("spotLight.constant", 1.0f);
-        lightshader.setFloat("spotLight.linear", 0.07);
-        lightshader.setFloat("spotLight.quadratic", 0.017);
-        lightshader.setFloat("spotLight.cutOff", glm::cos(glm::radians(7.5f)));
-        lightshader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(10.0f)));  
+        // material properties
+        lightshader.setVec3("material.ambient", 0.0f, 0.1f, 0.06f);
+        lightshader.setVec3("material.diffuse", 0.0f, 0.50980392f, 0.50980392f);
+        lightshader.setVec3("material.specular", 0.50196078f, 0.50196078f, 0.50196078f);
+        lightshader.setFloat("material.shininess", 32.0f);
+#endif
+
         // view/projection transformations
       	glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         lightshader.setMat4("projection", projection); // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
@@ -301,7 +264,7 @@ int main()
 
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
-       
+#if 0        
         lampshader.use();
         lampshader.setMat4("projection", projection);
         lampshader.setMat4("view", view);
@@ -311,16 +274,8 @@ int main()
         lampshader.setMat4("model", model);
 
         glBindVertexArray(lightVAO);      
-        for (unsigned int i = 0; i < 4; i++)
-        {
-            model = glm::mat4(1.0f);
-            model = glm::translate(model, pointLightPositions[i]);
-            model = glm::scale(model, glm::vec3(0.2f)); // Make it a smaller cube
-            lampshader.setMat4("model", model);
-            glDrawArrays(GL_TRIANGLES, 0, 36);
-        }
-
-
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+#endif
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
         glfwSwapBuffers(window);
