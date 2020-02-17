@@ -1,0 +1,10 @@
+创建一个空文件夹，并其下创建 include 、lib 和 src 目录	
+将 glad.zip 解压后的文件：	
+	include 中的 KHR 和 glad 两个文件夹复制到 include 目录；
+	src/glad.c 复制到 src 目录。
+	为了方便起见，还是把 glad.c 编译成静态库：
+
+$ gcc .\src\glad.c  -c  -I  .\include\
+$ ar -rc libglad.a glad.o
+
+将 libglad.a 复制到 lib 目录。
