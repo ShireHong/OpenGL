@@ -1,14 +1,14 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
 
-#include <glad/glad.h>
+//#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 
 #include "game.h"
 #include "resource_manage.h"
-//#include "model.h"
 
+//#include <glad/glad.h>
 #include <iostream>
 
 
@@ -19,7 +19,7 @@ const unsigned int SCR_HEIGHT = 720;
 
 Game Breakout(SCR_WIDTH, SCR_HEIGHT); 
 
-nt main()
+int main()
 {
     // glfw: initialize and configure
     // ------------------------------
@@ -31,7 +31,7 @@ nt main()
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
     // glfw window creation
     // --------------------
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "hzopl", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "breakout", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -45,11 +45,7 @@ nt main()
 
     // glad: load all OpenGL function pointers
     // ---------------------------------------
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cout << "Failed to initialize GLAD" << std::endl;
-        return -1;
-    }
+   
 
     glfwSetKeyCallback(window, key_callback);
      // OpenGL configuration
@@ -85,7 +81,7 @@ nt main()
         Breakout.update(deltaTime);
 
         // Render
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         Breakout.render();
 

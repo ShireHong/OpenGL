@@ -1,5 +1,6 @@
-#include<iostream>
+
 #include "texture.h"
+#include<iostream>
 
 texture2D::texture2D()
 	:width(0), height(0), internal_format(GL_RGB), image_format(GL_RGB), wrap_s(GL_REPEAT), wrap_t(GL_REPEAT), filter_min(GL_LINEAR), filter_max(GL_LINEAR)
@@ -7,7 +8,7 @@ texture2D::texture2D()
 	glGenTextures(1, &this->ID);
 }
 
-void texture2D::generate(unsigned int w, unsigned int h, unsigned char* date)
+void texture2D::generate(unsigned int w, unsigned int h, unsigned char* data)
 {
 	this->width = w;
 	this->height = h;

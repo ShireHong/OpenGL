@@ -28,6 +28,6 @@ private:
     static shader    loadShaderFromFile(const char *vShaderFile, const char *fShaderFile, const char *gShaderFile = nullptr);
     // Loads a single texture from file
     static texture2D loadTextureFromFile(const char *file, bool alpha);
-}
+};
 
 #endif

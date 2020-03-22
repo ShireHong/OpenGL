@@ -13,10 +13,10 @@ enum game_state{
 
 class Game{
 public:
-	gamke_state  state;
+	game_state  state;
 	bool         keys[1024];
 	unsigned int width;
-	unsigned int heiht;
+	unsigned int height;
 	Game(unsigned int w, unsigned int h);
 	~Game(); 
 	void init();

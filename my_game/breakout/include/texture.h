@@ -1,6 +1,8 @@
 #ifndef  _TEXTURE_H
 #define  _TEXTURE_H
 
+#include <GL/glew.h>
+
 class texture2D{
 public:
 	unsigned int ID;
@@ -15,9 +17,9 @@ public:
 
 	texture2D();
 
-	void generate(unsigned int w, unsigned int h, unsigned char* date);
+	void generate(unsigned int w, unsigned int h, unsigned char* data);
 
 	void bind() const;
-}
+};
 
 #endif

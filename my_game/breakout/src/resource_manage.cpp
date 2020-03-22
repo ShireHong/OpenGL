@@ -1,18 +1,18 @@
-#include "resource_manager.h"
+#include "resource_manage.h"
 
 #include <iostream>
 #include <sstream>
 #include <fstream>
-
+#define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
 
 using namespace std;
-map<string, texture> ResourceManager::textures;
+map<string, texture2D> ResourceManager::textures;
 map<string, shader> ResourceManager::shaders;
 
 
-shader ResourceManager::LoadShader(const char *vShaderFile, const char *fShaderFile, const char *gShaderFile, string name);
+shader ResourceManager::LoadShader(const char *vShaderFile, const char *fShaderFile, const char *gShaderFile, string name)
 {
 	shaders[name] = loadShaderFromFile(vShaderFile, fShaderFile, gShaderFile);
 	return shaders[name];
@@ -93,8 +93,8 @@ texture2D ResourceManager::loadTextureFromFile(const char *file, bool alpha)
 	texture2D texture;
     if (alpha)
     {
-        texture.Internal_Format = GL_RGBA;
-        texture.Image_Format = GL_RGBA;
+        texture.internal_format = GL_RGBA;
+        texture.image_format = GL_RGBA;
     }
 
     int width, height, nrComponents;
