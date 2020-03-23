@@ -1,4 +1,4 @@
-*.js linguist-language=cpp
+*.md linguist-language=cpp
 *.css linguist-language=cpp
 *.html linguist-language=cpp
 *.c linguist-language=cpp
