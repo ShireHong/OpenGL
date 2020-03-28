@@ -14,8 +14,8 @@
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
-const unsigned int SCR_WIDTH = 1280;
-const unsigned int SCR_HEIGHT = 720;
+const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_HEIGHT = 600;
 
 Game Breakout(SCR_WIDTH, SCR_HEIGHT); 
 

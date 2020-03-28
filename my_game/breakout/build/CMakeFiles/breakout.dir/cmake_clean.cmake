@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/breakout.dir/src/game.cpp.obj"
   "CMakeFiles/breakout.dir/src/resource_manage.cpp.obj"
   "CMakeFiles/breakout.dir/src/shader.cpp.obj"
+  "CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj"
   "CMakeFiles/breakout.dir/src/texture.cpp.obj"
   "breakout.exe"
   "breakout.exe.manifest"

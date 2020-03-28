@@ -34,19 +34,27 @@ glm/glm.hpp
 glm/gtc/type_ptr.hpp
 -
 
+../include/sprite_renderer.h
+GL/glew.h
+-
+glm/glm.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+texture.h
+../include/texture.h
+shader.h
+../include/shader.h
+
 ../include/texture.h
 GL/glew.h
 -
 
-D:/git_hub/OpenGL/my_game/breakout/src/breakout.cpp
-GL/glew.h
--
-GLFW/glfw3.h
--
+D:/git_hub/OpenGL/my_game/breakout/src/game.cpp
 game.h
 D:/git_hub/OpenGL/my_game/breakout/src/game.h
 resource_manage.h
 D:/git_hub/OpenGL/my_game/breakout/src/resource_manage.h
-iostream
--
+sprite_renderer.h
+D:/git_hub/OpenGL/my_game/breakout/src/sprite_renderer.h
 

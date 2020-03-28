@@ -25,9 +25,9 @@ set(LIBS glut32.lib
 )
 
 #将需要调用到的文件打包到与执行文件一个目录，先把文件重命名
-#set(RESOURCE ${CMAKE_SOURCE_DIR}/resource)
+set(RESOURCE ${CMAKE_SOURCE_DIR}/resource)
 # 拷贝资源到执行目录下
-#file(COPY ${RESOURCE} DESTINATION ${CMAKE_BINARY_DIR} )
+file(COPY ${RESOURCE} DESTINATION ${CMAKE_BINARY_DIR} )
 
 #添加头文件
 include_directories( ${CMAKE_SOURCE_DIR}/include )

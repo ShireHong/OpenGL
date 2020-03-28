@@ -8,6 +8,10 @@ CMakeFiles/breakout.dir/src/breakout.cpp.obj: ../include/texture.h
 CMakeFiles/breakout.dir/src/breakout.cpp.obj: ../src/breakout.cpp
 
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/game.h
+CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/resource_manage.h
+CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/shader.h
+CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/sprite_renderer.h
+CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/texture.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../src/game.cpp
 
 CMakeFiles/breakout.dir/src/resource_manage.cpp.obj: ../include/resource_manage.h
@@ -18,6 +22,11 @@ CMakeFiles/breakout.dir/src/resource_manage.cpp.obj: ../src/resource_manage.cpp
 
 CMakeFiles/breakout.dir/src/shader.cpp.obj: ../include/shader.h
 CMakeFiles/breakout.dir/src/shader.cpp.obj: ../src/shader.cpp
+
+CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj: ../include/shader.h
+CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj: ../include/sprite_renderer.h
+CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj: ../include/texture.h
+CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj: ../src/sprite_renderer.cpp
 
 CMakeFiles/breakout.dir/src/texture.cpp.obj: ../include/texture.h
 CMakeFiles/breakout.dir/src/texture.cpp.obj: ../src/texture.cpp

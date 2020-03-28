@@ -230,6 +230,33 @@ src/shader.cpp.s:
 	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/shader.cpp.s
 .PHONY : src/shader.cpp.s
 
+src/sprite_renderer.obj: src/sprite_renderer.cpp.obj
+
+.PHONY : src/sprite_renderer.obj
+
+# target to build an object file
+src/sprite_renderer.cpp.obj:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj
+.PHONY : src/sprite_renderer.cpp.obj
+
+src/sprite_renderer.i: src/sprite_renderer.cpp.i
+
+.PHONY : src/sprite_renderer.i
+
+# target to preprocess a source file
+src/sprite_renderer.cpp.i:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/sprite_renderer.cpp.i
+.PHONY : src/sprite_renderer.cpp.i
+
+src/sprite_renderer.s: src/sprite_renderer.cpp.s
+
+.PHONY : src/sprite_renderer.s
+
+# target to generate assembly for a file
+src/sprite_renderer.cpp.s:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/sprite_renderer.cpp.s
+.PHONY : src/sprite_renderer.cpp.s
+
 src/texture.obj: src/texture.cpp.obj
 
 .PHONY : src/texture.obj
@@ -278,6 +305,9 @@ help:
 	@echo ... src/shader.obj
 	@echo ... src/shader.i
 	@echo ... src/shader.s
+	@echo ... src/sprite_renderer.obj
+	@echo ... src/sprite_renderer.i
+	@echo ... src/sprite_renderer.s
 	@echo ... src/texture.obj
 	@echo ... src/texture.i
 	@echo ... src/texture.s

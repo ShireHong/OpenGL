@@ -9,6 +9,10 @@ CMakeFiles/breakout.dir/src/breakout.cpp.obj
  D:/git_hub/OpenGL/my_game/breakout/src/breakout.cpp
 CMakeFiles/breakout.dir/src/game.cpp.obj
  ../include/game.h
+ ../include/resource_manage.h
+ ../include/shader.h
+ ../include/sprite_renderer.h
+ ../include/texture.h
  D:/git_hub/OpenGL/my_game/breakout/src/game.cpp
 CMakeFiles/breakout.dir/src/resource_manage.cpp.obj
  ../include/resource_manage.h
@@ -19,6 +23,11 @@ CMakeFiles/breakout.dir/src/resource_manage.cpp.obj
 CMakeFiles/breakout.dir/src/shader.cpp.obj
  ../include/shader.h
  D:/git_hub/OpenGL/my_game/breakout/src/shader.cpp
+CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj
+ ../include/shader.h
+ ../include/sprite_renderer.h
+ ../include/texture.h
+ D:/git_hub/OpenGL/my_game/breakout/src/sprite_renderer.cpp
 CMakeFiles/breakout.dir/src/texture.cpp.obj
  ../include/texture.h
  D:/git_hub/OpenGL/my_game/breakout/src/texture.cpp
