@@ -7,7 +7,10 @@ GameObject::GameObject()
 }
 
 GameObject::GameObject(glm::vec2 pos, glm::vec2 sz, texture2D sprite, glm::vec3 clr, glm::vec2 vel) 
-    : position(pos), size(sz), velocity(vel), color(clr), rotation(0.0f), sprite(sprite), issolid(false), destroyed(false) { }
+    : position(pos), size(sz), velocity(vel), color(clr), rotation(0.0f), sprite(sprite), issolid(false), destroyed(false) 
+ {
+ 	
+ }
 
 void GameObject::Draw(SpriteRenderer &renderer)
 {

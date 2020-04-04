@@ -122,6 +122,33 @@ breakout/fast:
 	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/build
 .PHONY : breakout/fast
 
+src/ball_object.obj: src/ball_object.cpp.obj
+
+.PHONY : src/ball_object.obj
+
+# target to build an object file
+src/ball_object.cpp.obj:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/ball_object.cpp.obj
+.PHONY : src/ball_object.cpp.obj
+
+src/ball_object.i: src/ball_object.cpp.i
+
+.PHONY : src/ball_object.i
+
+# target to preprocess a source file
+src/ball_object.cpp.i:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/ball_object.cpp.i
+.PHONY : src/ball_object.cpp.i
+
+src/ball_object.s: src/ball_object.cpp.s
+
+.PHONY : src/ball_object.s
+
+# target to generate assembly for a file
+src/ball_object.cpp.s:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/ball_object.cpp.s
+.PHONY : src/ball_object.cpp.s
+
 src/breakout.obj: src/breakout.cpp.obj
 
 .PHONY : src/breakout.obj
@@ -175,6 +202,60 @@ src/game.s: src/game.cpp.s
 src/game.cpp.s:
 	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/game.cpp.s
 .PHONY : src/game.cpp.s
+
+src/game_level.obj: src/game_level.cpp.obj
+
+.PHONY : src/game_level.obj
+
+# target to build an object file
+src/game_level.cpp.obj:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/game_level.cpp.obj
+.PHONY : src/game_level.cpp.obj
+
+src/game_level.i: src/game_level.cpp.i
+
+.PHONY : src/game_level.i
+
+# target to preprocess a source file
+src/game_level.cpp.i:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/game_level.cpp.i
+.PHONY : src/game_level.cpp.i
+
+src/game_level.s: src/game_level.cpp.s
+
+.PHONY : src/game_level.s
+
+# target to generate assembly for a file
+src/game_level.cpp.s:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/game_level.cpp.s
+.PHONY : src/game_level.cpp.s
+
+src/game_object.obj: src/game_object.cpp.obj
+
+.PHONY : src/game_object.obj
+
+# target to build an object file
+src/game_object.cpp.obj:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/game_object.cpp.obj
+.PHONY : src/game_object.cpp.obj
+
+src/game_object.i: src/game_object.cpp.i
+
+.PHONY : src/game_object.i
+
+# target to preprocess a source file
+src/game_object.cpp.i:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/game_object.cpp.i
+.PHONY : src/game_object.cpp.i
+
+src/game_object.s: src/game_object.cpp.s
+
+.PHONY : src/game_object.s
+
+# target to generate assembly for a file
+src/game_object.cpp.s:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/game_object.cpp.s
+.PHONY : src/game_object.cpp.s
 
 src/resource_manage.obj: src/resource_manage.cpp.obj
 
@@ -293,12 +374,21 @@ help:
 	@echo ... breakout
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... src/ball_object.obj
+	@echo ... src/ball_object.i
+	@echo ... src/ball_object.s
 	@echo ... src/breakout.obj
 	@echo ... src/breakout.i
 	@echo ... src/breakout.s
 	@echo ... src/game.obj
 	@echo ... src/game.i
 	@echo ... src/game.s
+	@echo ... src/game_level.obj
+	@echo ... src/game_level.i
+	@echo ... src/game_level.s
+	@echo ... src/game_object.obj
+	@echo ... src/game_object.i
+	@echo ... src/game_object.s
 	@echo ... src/resource_manage.obj
 	@echo ... src/resource_manage.i
 	@echo ... src/resource_manage.s

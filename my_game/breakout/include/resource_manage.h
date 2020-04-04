@@ -11,6 +11,12 @@
 
 using namespace std;
 
+/*
+此结构体加载shader和纹理，从reource中读取文件
+*/
+
+
+
 class ResourceManager
 {
 public:

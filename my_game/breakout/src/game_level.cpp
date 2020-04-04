@@ -31,7 +31,7 @@ void GameLevel::Load(const char* file, GLuint levelWidth, GLuint levelHeight)
 void GameLevel::Draw(SpriteRenderer &renderer)
 {
     for (GameObject &tile : this->Bricks)
-        if (!tile.Destroyed)
+        if (!tile.destroyed)
             tile.Draw(renderer);
 }
 
@@ -65,7 +65,7 @@ void    GameLevel::init(vector<vector<GLuint>> tileData, GLuint levelWidth, GLui
 			}
 			else if(tileData[x][y] > 1)
 			{
-				glm::vec3 color = vec3(1.0f);
+				glm::vec3 color = glm::vec3(1.0f);
 				if(tileData[x][y] == 2)
 					color = glm::vec3(0.2f, 0.6f, 1.0f);
 				else if (tileData[x][y] == 3)

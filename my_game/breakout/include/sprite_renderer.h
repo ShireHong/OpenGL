@@ -8,6 +8,12 @@
 #include "texture.h"
 #include "shader.h"
 
+/*
+根据读取的着色器片段和顶点片段，结合纹理进行渲染，所有元素都是通过这里实现渲染（draw）
+着色器片段和顶点片段可以共用，所以在这个游戏中看到这个着色器一般不变
+*/
+
+
 class SpriteRenderer
 {
 public:

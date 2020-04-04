@@ -3,6 +3,12 @@
 
 #include <GL/glew.h>
 
+
+/*
+纹理相关的渲染都是通过这个结构体
+*/
+
+
 class texture2D{
 public:
 	unsigned int ID;

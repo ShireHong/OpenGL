@@ -7,6 +7,11 @@
 #include "texture.h"
 #include "sprite_renderer.h"
 
+
+/*
+定义游戏中的各元素的位置，大小，纹理，速度和颜色，包括所有的变量，并且可以调用spriterender渲染这些元素。
+*/
+
 class GameObject
 {
 public:

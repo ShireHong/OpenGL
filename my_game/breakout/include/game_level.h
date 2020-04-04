@@ -8,9 +8,14 @@
 
 #include "game_object.h"
 #include "sprite_renderer.h"
-#include "resource_manager.h"
+#include "resource_manage.h"
 
 using namespace std;
+
+
+/*
+游戏关卡的结构体，包括所有的砖块，加载一些关卡，并渲染这些关卡
+*/
 
 class GameLevel
 {
