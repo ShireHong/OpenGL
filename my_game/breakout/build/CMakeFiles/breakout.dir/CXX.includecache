@@ -56,6 +56,20 @@ texture.h
 sprite_renderer.h
 ../include/sprite_renderer.h
 
+../include/particle.h
+vector
+-
+GL/glew.h
+-
+glm/glm.hpp
+-
+shader.h
+../include/shader.h
+texture.h
+../include/texture.h
+game_object.h
+../include/game_object.h
+
 ../include/resource_manage.h
 map
 -
@@ -107,6 +121,8 @@ ball_object.h
 D:/git_hub/OpenGL/my_game/breakout/src/ball_object.h
 game_level.h
 D:/git_hub/OpenGL/my_game/breakout/src/game_level.h
+particle.h
+D:/git_hub/OpenGL/my_game/breakout/src/particle.h
 iostream
 -
 

@@ -257,6 +257,33 @@ src/game_object.cpp.s:
 	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/game_object.cpp.s
 .PHONY : src/game_object.cpp.s
 
+src/particle.obj: src/particle.cpp.obj
+
+.PHONY : src/particle.obj
+
+# target to build an object file
+src/particle.cpp.obj:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/particle.cpp.obj
+.PHONY : src/particle.cpp.obj
+
+src/particle.i: src/particle.cpp.i
+
+.PHONY : src/particle.i
+
+# target to preprocess a source file
+src/particle.cpp.i:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/particle.cpp.i
+.PHONY : src/particle.cpp.i
+
+src/particle.s: src/particle.cpp.s
+
+.PHONY : src/particle.s
+
+# target to generate assembly for a file
+src/particle.cpp.s:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/particle.cpp.s
+.PHONY : src/particle.cpp.s
+
 src/resource_manage.obj: src/resource_manage.cpp.obj
 
 .PHONY : src/resource_manage.obj
@@ -389,6 +416,9 @@ help:
 	@echo ... src/game_object.obj
 	@echo ... src/game_object.i
 	@echo ... src/game_object.s
+	@echo ... src/particle.obj
+	@echo ... src/particle.i
+	@echo ... src/particle.s
 	@echo ... src/resource_manage.obj
 	@echo ... src/resource_manage.i
 	@echo ... src/resource_manage.s

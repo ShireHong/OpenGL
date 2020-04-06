@@ -21,6 +21,7 @@ CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/ball_object.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/game.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/game_level.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/game_object.h
+CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/particle.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/resource_manage.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/shader.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/sprite_renderer.h
@@ -40,6 +41,13 @@ CMakeFiles/breakout.dir/src/game_object.cpp.obj: ../include/shader.h
 CMakeFiles/breakout.dir/src/game_object.cpp.obj: ../include/sprite_renderer.h
 CMakeFiles/breakout.dir/src/game_object.cpp.obj: ../include/texture.h
 CMakeFiles/breakout.dir/src/game_object.cpp.obj: ../src/game_object.cpp
+
+CMakeFiles/breakout.dir/src/particle.cpp.obj: ../include/game_object.h
+CMakeFiles/breakout.dir/src/particle.cpp.obj: ../include/particle.h
+CMakeFiles/breakout.dir/src/particle.cpp.obj: ../include/shader.h
+CMakeFiles/breakout.dir/src/particle.cpp.obj: ../include/sprite_renderer.h
+CMakeFiles/breakout.dir/src/particle.cpp.obj: ../include/texture.h
+CMakeFiles/breakout.dir/src/particle.cpp.obj: ../src/particle.cpp
 
 CMakeFiles/breakout.dir/src/resource_manage.cpp.obj: ../include/resource_manage.h
 CMakeFiles/breakout.dir/src/resource_manage.cpp.obj: ../include/shader.h

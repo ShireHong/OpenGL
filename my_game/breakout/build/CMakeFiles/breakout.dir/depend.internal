@@ -22,6 +22,7 @@ CMakeFiles/breakout.dir/src/game.cpp.obj
  ../include/game.h
  ../include/game_level.h
  ../include/game_object.h
+ ../include/particle.h
  ../include/resource_manage.h
  ../include/shader.h
  ../include/sprite_renderer.h
@@ -41,6 +42,13 @@ CMakeFiles/breakout.dir/src/game_object.cpp.obj
  ../include/sprite_renderer.h
  ../include/texture.h
  D:/git_hub/OpenGL/my_game/breakout/src/game_object.cpp
+CMakeFiles/breakout.dir/src/particle.cpp.obj
+ ../include/game_object.h
+ ../include/particle.h
+ ../include/shader.h
+ ../include/sprite_renderer.h
+ ../include/texture.h
+ D:/git_hub/OpenGL/my_game/breakout/src/particle.cpp
 CMakeFiles/breakout.dir/src/resource_manage.cpp.obj
  ../include/resource_manage.h
  ../include/shader.h

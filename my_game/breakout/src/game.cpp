@@ -4,12 +4,15 @@
 #include "game_object.h"
 #include "ball_object.h"
 #include "game_level.h"
+#include "particle.h"
+
 #include <iostream>
 
 
-SpriteRenderer  *Renderer;
-GameObject      *Player;
-BallObject      *Ball;
+SpriteRenderer  	*Renderer;
+GameObject      	*Player;
+BallObject      	*Ball;
+ParticleGenerator 	*Particles;
 
 Game::Game(unsigned int w, unsigned int h)
 		: state(GAME_ACTIVE), keys(), width(w), height(h) 
@@ -27,21 +30,25 @@ void Game::init()
 {
 	
 	ResourceManager::LoadShader("resource/shader/sprite.vs", "resource/shader/sprite.fs", nullptr, "sprite" );
+	ResourceManager::LoadShader("resource/shader/particle.vs", "resource/shader/particle.fs", nullptr, "particle" );
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(this->width), static_cast<GLfloat>(this->height), 
 		0.0f, -1.0f, 1.0f);
 	ResourceManager::GetShader("sprite").use().set_int("image", 0);
     ResourceManager::GetShader("sprite").set_mat4("projection", projection);
+    ResourceManager::GetShader("particle").use().set_int("image", 0);
+    ResourceManager::GetShader("particle").set_mat4("projection", projection);
     // Load textures
     ResourceManager::LoadTexture("resource/texture/background.png", GL_FALSE, "background");
     ResourceManager::LoadTexture("resource/texture/awesomeface.png", GL_TRUE, "face");
     ResourceManager::LoadTexture("resource/texture/block.png", GL_FALSE, "block");
     ResourceManager::LoadTexture("resource/texture/block_solid.png", GL_FALSE, "block_solid");
     ResourceManager::LoadTexture("resource/texture/paddle.png", GL_TRUE, "paddle");
+    ResourceManager::LoadTexture("resource/texture/particle.png", GL_TRUE, "particle");
 
 
     // Set render-specific controls
     Renderer = new SpriteRenderer(ResourceManager::GetShader("sprite"));
-
+    Particles = new ParticleGenerator(ResourceManager::GetShader("particle"), ResourceManager::GetTexture("particle"), 500);
     GameLevel one,two,three,four;
 
     one.Load("resource/level/one.lvl", this->width, this->height*0.5);
@@ -62,7 +69,6 @@ void Game::init()
     glm::vec2 ballPos = playerPos + glm::vec2(PLAYER_SIZE.x / 2 - BALL_RADIUS, -BALL_RADIUS * 2);
     Ball = new BallObject(ballPos, BALL_RADIUS, INITIAL_BALL_VELOCITY,
         ResourceManager::GetTexture("face"));
-
 }
 
 void Game::process_input(float dt)
@@ -96,7 +102,11 @@ void Game::process_input(float dt)
 void Game::update(float dt)
 {
 	Ball->Move(dt,this->width);
+
 	this->DoCollisions();
+
+	Particles->Update(dt, *Ball, 2, glm::vec2(Ball->Radius / 2));
+
 	if (Ball->position.y >= this->height) // Did ball reach bottom edge?
     {
         this->ResetLevel();
@@ -107,13 +117,13 @@ void Game::update(float dt)
 void Game::ResetLevel()
 {
     if (this->Level == 0)
-    	this->Levels[0].Load("levels/one.lvl", this->width, this->height * 0.5f);
+    	this->Levels[0].Load("resource/level/one.lvl", this->width, this->height * 0.5f);
     else if (this->Level == 1)
-        this->Levels[1].Load("levels/two.lvl", this->width, this->height * 0.5f);
+        this->Levels[1].Load("resource/level/two.lvl", this->width, this->height * 0.5f);
     else if (this->Level == 2)
-        this->Levels[2].Load("levels/three.lvl", this->width, this->height * 0.5f);
+        this->Levels[2].Load("resource/level/three.lvl", this->width, this->height * 0.5f);
     else if (this->Level == 3)
-        this->Levels[3].Load("levels/four.lvl", this->width, this->height * 0.5f);
+        this->Levels[3].Load("resource/level/four.lvl", this->width, this->height * 0.5f);
 }
 
 void Game::ResetPlayer()
@@ -138,6 +148,8 @@ void Game::render()
         Player->Draw(*Renderer);
 
         Ball->Draw(*Renderer);
+        if(!Ball->Stuck)
+        	Particles->Draw();
 	}
 }
 
