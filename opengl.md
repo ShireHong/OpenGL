@@ -63,3 +63,7 @@ shininess：影响镜面高光的散射/半径。
 ##编box2d遇到的问题：
 1，fileno 的问题，去掉cmake list里面关于c++11的支持
 2，mutex 的问题，还没找到解决办法，mingw的thread也下载不下来，可能需要切换到mingw64.
+
+##关于freetype字体添加的问题：
+1，从网上下载freetype的库，mingw用到的是一个include头文件freetype，和一个ft2build.h文件，lib文件是libfreetype.dll.a
+2，需要注意的是，在执行的时候需要把freetype.dll放在与执行文件同意目录下，或者放到mingw的bin目录下
