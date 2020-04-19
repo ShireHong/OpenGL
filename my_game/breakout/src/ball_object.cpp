@@ -42,4 +42,6 @@ void  BallObject::Reset(glm::vec2 pos, glm::vec2 vel)
 	this->position = pos;
     this->velocity = vel;
     this->Stuck = GL_TRUE;
+    this->Sticky = GL_FALSE;
+    this->PassThrough = GL_FALSE;
 }

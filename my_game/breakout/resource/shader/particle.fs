@@ -8,3 +8,4 @@ uniform sampler2D image;
 void main()
 {
     color = ParticleColor * texture(image, TexCoords) ;
+}

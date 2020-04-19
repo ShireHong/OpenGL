@@ -19,7 +19,7 @@ public:
 	 // 球的状态 
     GLfloat   Radius; //半径
     GLboolean Stuck;
-
+    GLboolean Sticky, PassThrough;
 
     BallObject();
     BallObject(glm::vec2 pos, GLfloat radius, glm::vec2 vel, texture2D sprite);

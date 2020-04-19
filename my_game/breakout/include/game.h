@@ -5,6 +5,7 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include "game_level.h"
+#include "power_up.h"
 
 #include <vector>
 #include <tuple>
@@ -51,7 +52,7 @@ public:
 	unsigned int 		height;
 	vector<GameLevel> 	Levels;
     GLuint           	Level;
-
+    vector<PowerUp>     PowerUps;
 
 	Game(unsigned int w, unsigned int h);
 	~Game(); 
@@ -62,6 +63,8 @@ public:
 	void DoCollisions();
 	void ResetLevel();
 	void ResetPlayer();
+	void SpawnPowerUps(GameObject &block);
+	void UpdatePowerUps(GLfloat dt);
 };
 
 #endif

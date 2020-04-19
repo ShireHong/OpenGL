@@ -27,6 +27,8 @@ glm/glm.hpp
 -
 game_level.h
 ../include/game_level.h
+power_up.h
+../include/power_up.h
 vector
 -
 tuple
@@ -70,6 +72,28 @@ texture.h
 game_object.h
 ../include/game_object.h
 
+../include/post_processor.h
+GL/glew.h
+-
+glm/glm.hpp
+-
+texture.h
+../include/texture.h
+sprite_renderer.h
+../include/sprite_renderer.h
+shader.h
+../include/shader.h
+
+../include/power_up.h
+string
+-
+GL/glew.h
+-
+glm/glm.hpp
+-
+game_object.h
+../include/game_object.h
+
 ../include/resource_manage.h
 map
 -
@@ -109,6 +133,8 @@ GL/glew.h
 -
 
 D:/git_hub/OpenGL/my_game/breakout/src/game.cpp
+algorithm
+-
 game.h
 D:/git_hub/OpenGL/my_game/breakout/src/game.h
 resource_manage.h
@@ -123,6 +149,10 @@ game_level.h
 D:/git_hub/OpenGL/my_game/breakout/src/game_level.h
 particle.h
 D:/git_hub/OpenGL/my_game/breakout/src/particle.h
+post_processor.h
+D:/git_hub/OpenGL/my_game/breakout/src/post_processor.h
 iostream
+-
+stdlib.h
 -
 

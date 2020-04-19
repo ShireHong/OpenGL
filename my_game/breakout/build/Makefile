@@ -284,6 +284,33 @@ src/particle.cpp.s:
 	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/particle.cpp.s
 .PHONY : src/particle.cpp.s
 
+src/post_processor.obj: src/post_processor.cpp.obj
+
+.PHONY : src/post_processor.obj
+
+# target to build an object file
+src/post_processor.cpp.obj:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/post_processor.cpp.obj
+.PHONY : src/post_processor.cpp.obj
+
+src/post_processor.i: src/post_processor.cpp.i
+
+.PHONY : src/post_processor.i
+
+# target to preprocess a source file
+src/post_processor.cpp.i:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/post_processor.cpp.i
+.PHONY : src/post_processor.cpp.i
+
+src/post_processor.s: src/post_processor.cpp.s
+
+.PHONY : src/post_processor.s
+
+# target to generate assembly for a file
+src/post_processor.cpp.s:
+	$(MAKE) -f CMakeFiles\breakout.dir\build.make CMakeFiles/breakout.dir/src/post_processor.cpp.s
+.PHONY : src/post_processor.cpp.s
+
 src/resource_manage.obj: src/resource_manage.cpp.obj
 
 .PHONY : src/resource_manage.obj
@@ -419,6 +446,9 @@ help:
 	@echo ... src/particle.obj
 	@echo ... src/particle.i
 	@echo ... src/particle.s
+	@echo ... src/post_processor.obj
+	@echo ... src/post_processor.i
+	@echo ... src/post_processor.s
 	@echo ... src/resource_manage.obj
 	@echo ... src/resource_manage.i
 	@echo ... src/resource_manage.s

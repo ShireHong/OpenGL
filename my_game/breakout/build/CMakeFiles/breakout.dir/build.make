@@ -140,10 +140,24 @@ CMakeFiles/breakout.dir/src/particle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/breakout.dir/src/particle.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\git_hub\OpenGL\my_game\breakout\src\particle.cpp -o CMakeFiles\breakout.dir\src\particle.cpp.s
 
+CMakeFiles/breakout.dir/src/post_processor.cpp.obj: CMakeFiles/breakout.dir/flags.make
+CMakeFiles/breakout.dir/src/post_processor.cpp.obj: CMakeFiles/breakout.dir/includes_CXX.rsp
+CMakeFiles/breakout.dir/src/post_processor.cpp.obj: ../src/post_processor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\git_hub\OpenGL\my_game\breakout\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/breakout.dir/src/post_processor.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\breakout.dir\src\post_processor.cpp.obj -c D:\git_hub\OpenGL\my_game\breakout\src\post_processor.cpp
+
+CMakeFiles/breakout.dir/src/post_processor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/breakout.dir/src/post_processor.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\git_hub\OpenGL\my_game\breakout\src\post_processor.cpp > CMakeFiles\breakout.dir\src\post_processor.cpp.i
+
+CMakeFiles/breakout.dir/src/post_processor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/breakout.dir/src/post_processor.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\git_hub\OpenGL\my_game\breakout\src\post_processor.cpp -o CMakeFiles\breakout.dir\src\post_processor.cpp.s
+
 CMakeFiles/breakout.dir/src/resource_manage.cpp.obj: CMakeFiles/breakout.dir/flags.make
 CMakeFiles/breakout.dir/src/resource_manage.cpp.obj: CMakeFiles/breakout.dir/includes_CXX.rsp
 CMakeFiles/breakout.dir/src/resource_manage.cpp.obj: ../src/resource_manage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\git_hub\OpenGL\my_game\breakout\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/breakout.dir/src/resource_manage.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\git_hub\OpenGL\my_game\breakout\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/breakout.dir/src/resource_manage.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\breakout.dir\src\resource_manage.cpp.obj -c D:\git_hub\OpenGL\my_game\breakout\src\resource_manage.cpp
 
 CMakeFiles/breakout.dir/src/resource_manage.cpp.i: cmake_force
@@ -157,7 +171,7 @@ CMakeFiles/breakout.dir/src/resource_manage.cpp.s: cmake_force
 CMakeFiles/breakout.dir/src/shader.cpp.obj: CMakeFiles/breakout.dir/flags.make
 CMakeFiles/breakout.dir/src/shader.cpp.obj: CMakeFiles/breakout.dir/includes_CXX.rsp
 CMakeFiles/breakout.dir/src/shader.cpp.obj: ../src/shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\git_hub\OpenGL\my_game\breakout\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/breakout.dir/src/shader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\git_hub\OpenGL\my_game\breakout\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/breakout.dir/src/shader.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\breakout.dir\src\shader.cpp.obj -c D:\git_hub\OpenGL\my_game\breakout\src\shader.cpp
 
 CMakeFiles/breakout.dir/src/shader.cpp.i: cmake_force
@@ -171,7 +185,7 @@ CMakeFiles/breakout.dir/src/shader.cpp.s: cmake_force
 CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj: CMakeFiles/breakout.dir/flags.make
 CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj: CMakeFiles/breakout.dir/includes_CXX.rsp
 CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj: ../src/sprite_renderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\git_hub\OpenGL\my_game\breakout\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\git_hub\OpenGL\my_game\breakout\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\breakout.dir\src\sprite_renderer.cpp.obj -c D:\git_hub\OpenGL\my_game\breakout\src\sprite_renderer.cpp
 
 CMakeFiles/breakout.dir/src/sprite_renderer.cpp.i: cmake_force
@@ -185,7 +199,7 @@ CMakeFiles/breakout.dir/src/sprite_renderer.cpp.s: cmake_force
 CMakeFiles/breakout.dir/src/texture.cpp.obj: CMakeFiles/breakout.dir/flags.make
 CMakeFiles/breakout.dir/src/texture.cpp.obj: CMakeFiles/breakout.dir/includes_CXX.rsp
 CMakeFiles/breakout.dir/src/texture.cpp.obj: ../src/texture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\git_hub\OpenGL\my_game\breakout\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/breakout.dir/src/texture.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\git_hub\OpenGL\my_game\breakout\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/breakout.dir/src/texture.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\breakout.dir\src\texture.cpp.obj -c D:\git_hub\OpenGL\my_game\breakout\src\texture.cpp
 
 CMakeFiles/breakout.dir/src/texture.cpp.i: cmake_force
@@ -204,6 +218,7 @@ breakout_OBJECTS = \
 "CMakeFiles/breakout.dir/src/game_level.cpp.obj" \
 "CMakeFiles/breakout.dir/src/game_object.cpp.obj" \
 "CMakeFiles/breakout.dir/src/particle.cpp.obj" \
+"CMakeFiles/breakout.dir/src/post_processor.cpp.obj" \
 "CMakeFiles/breakout.dir/src/resource_manage.cpp.obj" \
 "CMakeFiles/breakout.dir/src/shader.cpp.obj" \
 "CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj" \
@@ -218,6 +233,7 @@ breakout.exe: CMakeFiles/breakout.dir/src/game.cpp.obj
 breakout.exe: CMakeFiles/breakout.dir/src/game_level.cpp.obj
 breakout.exe: CMakeFiles/breakout.dir/src/game_object.cpp.obj
 breakout.exe: CMakeFiles/breakout.dir/src/particle.cpp.obj
+breakout.exe: CMakeFiles/breakout.dir/src/post_processor.cpp.obj
 breakout.exe: CMakeFiles/breakout.dir/src/resource_manage.cpp.obj
 breakout.exe: CMakeFiles/breakout.dir/src/shader.cpp.obj
 breakout.exe: CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj
@@ -226,7 +242,7 @@ breakout.exe: CMakeFiles/breakout.dir/build.make
 breakout.exe: CMakeFiles/breakout.dir/linklibs.rsp
 breakout.exe: CMakeFiles/breakout.dir/objects1.rsp
 breakout.exe: CMakeFiles/breakout.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\git_hub\OpenGL\my_game\breakout\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable breakout.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\git_hub\OpenGL\my_game\breakout\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable breakout.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\breakout.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

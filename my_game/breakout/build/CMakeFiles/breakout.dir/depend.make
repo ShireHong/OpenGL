@@ -11,6 +11,7 @@ CMakeFiles/breakout.dir/src/ball_object.cpp.obj: ../src/ball_object.cpp
 CMakeFiles/breakout.dir/src/breakout.cpp.obj: ../include/game.h
 CMakeFiles/breakout.dir/src/breakout.cpp.obj: ../include/game_level.h
 CMakeFiles/breakout.dir/src/breakout.cpp.obj: ../include/game_object.h
+CMakeFiles/breakout.dir/src/breakout.cpp.obj: ../include/power_up.h
 CMakeFiles/breakout.dir/src/breakout.cpp.obj: ../include/resource_manage.h
 CMakeFiles/breakout.dir/src/breakout.cpp.obj: ../include/shader.h
 CMakeFiles/breakout.dir/src/breakout.cpp.obj: ../include/sprite_renderer.h
@@ -22,6 +23,8 @@ CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/game.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/game_level.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/game_object.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/particle.h
+CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/post_processor.h
+CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/power_up.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/resource_manage.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/shader.h
 CMakeFiles/breakout.dir/src/game.cpp.obj: ../include/sprite_renderer.h
@@ -48,6 +51,12 @@ CMakeFiles/breakout.dir/src/particle.cpp.obj: ../include/shader.h
 CMakeFiles/breakout.dir/src/particle.cpp.obj: ../include/sprite_renderer.h
 CMakeFiles/breakout.dir/src/particle.cpp.obj: ../include/texture.h
 CMakeFiles/breakout.dir/src/particle.cpp.obj: ../src/particle.cpp
+
+CMakeFiles/breakout.dir/src/post_processor.cpp.obj: ../include/post_processor.h
+CMakeFiles/breakout.dir/src/post_processor.cpp.obj: ../include/shader.h
+CMakeFiles/breakout.dir/src/post_processor.cpp.obj: ../include/sprite_renderer.h
+CMakeFiles/breakout.dir/src/post_processor.cpp.obj: ../include/texture.h
+CMakeFiles/breakout.dir/src/post_processor.cpp.obj: ../src/post_processor.cpp
 
 CMakeFiles/breakout.dir/src/resource_manage.cpp.obj: ../include/resource_manage.h
 CMakeFiles/breakout.dir/src/resource_manage.cpp.obj: ../include/shader.h
