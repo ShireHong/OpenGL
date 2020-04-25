@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "D:/git_hub/OpenGL/my_game/breakout/src/resource_manage.cpp" "D:/git_hub/OpenGL/my_game/breakout/build/CMakeFiles/breakout.dir/src/resource_manage.cpp.obj"
   "D:/git_hub/OpenGL/my_game/breakout/src/shader.cpp" "D:/git_hub/OpenGL/my_game/breakout/build/CMakeFiles/breakout.dir/src/shader.cpp.obj"
   "D:/git_hub/OpenGL/my_game/breakout/src/sprite_renderer.cpp" "D:/git_hub/OpenGL/my_game/breakout/build/CMakeFiles/breakout.dir/src/sprite_renderer.cpp.obj"
+  "D:/git_hub/OpenGL/my_game/breakout/src/text_renderer.cpp" "D:/git_hub/OpenGL/my_game/breakout/build/CMakeFiles/breakout.dir/src/text_renderer.cpp.obj"
   "D:/git_hub/OpenGL/my_game/breakout/src/texture.cpp" "D:/git_hub/OpenGL/my_game/breakout/build/CMakeFiles/breakout.dir/src/texture.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

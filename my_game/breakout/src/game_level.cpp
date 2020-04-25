@@ -83,3 +83,4 @@ void    GameLevel::init(vector<vector<GLuint>> tileData, GLuint levelWidth, GLui
 		}
 	}
 }	
+

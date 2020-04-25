@@ -128,12 +128,26 @@ texture.h
 shader.h
 ../include/shader.h
 
+../include/text_renderer.h
+map
+-
+GL/glew.h
+-
+glm/glm.hpp
+-
+texture.h
+../include/texture.h
+shader.h
+../include/shader.h
+
 ../include/texture.h
 GL/glew.h
 -
 
 D:/git_hub/OpenGL/my_game/breakout/src/game.cpp
 algorithm
+-
+sstream
 -
 game.h
 D:/git_hub/OpenGL/my_game/breakout/src/game.h
@@ -151,8 +165,22 @@ particle.h
 D:/git_hub/OpenGL/my_game/breakout/src/particle.h
 post_processor.h
 D:/git_hub/OpenGL/my_game/breakout/src/post_processor.h
+text_renderer.h
+D:/git_hub/OpenGL/my_game/breakout/src/text_renderer.h
 iostream
 -
 stdlib.h
 -
+
+D:/git_hub/OpenGL/my_game/breakout/src/text_renderer.cpp
+iostream
+-
+glm/gtc/matrix_transform.hpp
+-
+ft2build.h
+-
+text_renderer.h
+D:/git_hub/OpenGL/my_game/breakout/src/text_renderer.h
+resource_manage.h
+D:/git_hub/OpenGL/my_game/breakout/src/resource_manage.h
 

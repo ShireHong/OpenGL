@@ -22,6 +22,7 @@ set(LIBS glut32.lib
 	libglfw3dll.a 
 	libglad.a 
 	libopengl32.a
+	libfreetype.dll.a
 )
 
 #将需要调用到的文件打包到与执行文件一个目录，先把文件重命名

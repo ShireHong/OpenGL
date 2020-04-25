@@ -47,12 +47,14 @@ const GLfloat BALL_RADIUS = 12.5f;
 class Game{
 public:
 	game_state  		state;
-	bool        		keys[1024];
+	GLboolean         	keys[1024];
+	GLboolean 			KeysProcessed[1024];
 	unsigned int 		width;
 	unsigned int 		height;
 	vector<GameLevel> 	Levels;
     GLuint           	Level;
     vector<PowerUp>     PowerUps;
+    GLuint              Lives;
 
 	Game(unsigned int w, unsigned int h);
 	~Game(); 

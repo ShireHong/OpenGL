@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <sstream>
 
 #include "game.h"
 #include "resource_manage.h"
@@ -8,6 +9,8 @@
 #include "game_level.h"
 #include "particle.h"
 #include "post_processor.h"
+#include "text_renderer.h"
+
 #include <iostream>
 #include <stdlib.h>
 
@@ -18,9 +21,10 @@ BallObject      	*Ball;
 ParticleGenerator 	*Particles;
 PostProcessor       *Effects;
 GLfloat				ShakeTime = 0.0f;
+TextRenderer        *Text;
 
 Game::Game(unsigned int w, unsigned int h)
-		: state(GAME_ACTIVE), keys(), width(w), height(h) 
+		: state(GAME_MENU), keys(), width(w), height(h),Level(0), Lives(3) 
 {
 
 }
@@ -32,6 +36,7 @@ Game::~Game()
 	delete Ball;
 	delete Particles;
 	delete Effects;
+	delete Text;
 }
 
 void Game::init()
@@ -87,6 +92,8 @@ void Game::init()
 
     Effects = new PostProcessor(ResourceManager::GetShader("postprocessing"), this->width, this->height);
 
+    Text = new TextRenderer(this->width, this->height);
+    Text->Load("resource/fonts/arial.ttf", 24);
 }
 
 void Game::process_input(float dt)
@@ -94,7 +101,7 @@ void Game::process_input(float dt)
 	if(this->state == GAME_ACTIVE)
 	{
 		GLfloat vel = PLAYER_VELOCITY *dt;
-		if(this->keys[GLFW_KEY_A] == GL_TRUE)
+		if(this->keys[GLFW_KEY_A] == GL_TRUE )
 		{
 			if(Player->position.x >= 0)
 			{
@@ -115,6 +122,36 @@ void Game::process_input(float dt)
 	  	if (this->keys[GLFW_KEY_SPACE])
         	Ball->Stuck = GL_FALSE;
 	}
+	if(this->state == GAME_MENU)
+	{
+		if(this->keys[GLFW_KEY_ENTER] == GL_TRUE && !this->KeysProcessed[GLFW_KEY_ENTER])
+		{
+			this->state = GAME_ACTIVE;
+			this->KeysProcessed[GLFW_KEY_ENTER] = GL_TRUE;
+		}
+		if(this->keys[GLFW_KEY_W] == GL_TRUE && !this->KeysProcessed[GLFW_KEY_W])
+		{
+			this->Level = (this->Level + 1)%4;
+			this->KeysProcessed[GLFW_KEY_W] = GL_TRUE;
+		}
+		if (this->keys[GLFW_KEY_S]== GL_TRUE && !this->KeysProcessed[GLFW_KEY_S])
+	    {
+	        if (this->Level > 0)
+	            --this->Level;
+	        else
+	            this->Level = 3;
+	        this->KeysProcessed[GLFW_KEY_S] = GL_TRUE;
+	    }
+	}
+	if (this->state == GAME_WIN)
+    {
+        if (this->keys[GLFW_KEY_ENTER])
+        {
+            this->KeysProcessed[GLFW_KEY_ENTER] = GL_TRUE;
+            Effects->Chaos = GL_FALSE;
+            this->state = GAME_MENU;
+        }
+    }
 }
 
 void Game::update(float dt)
@@ -136,8 +173,20 @@ void Game::update(float dt)
 
 	if (Ball->position.y >= this->height) // Did ball reach bottom edge?
     {
+    	--this->Lives;
+    	if(!this->Lives)
+    	{
+        	this->ResetLevel();
+       		this->state = GAME_MENU;
+    	}
+    	this->ResetPlayer();
+    }
+    if (this->state == GAME_ACTIVE && this->Levels[this->Level].IsCompleted())
+    {
         this->ResetLevel();
         this->ResetPlayer();
+        Effects->Chaos = GL_TRUE;
+        this->state = GAME_WIN;
     }
 }
 
@@ -151,6 +200,7 @@ void Game::ResetLevel()
         this->Levels[2].Load("resource/level/three.lvl", this->width, this->height * 0.5f);
     else if (this->Level == 3)
         this->Levels[3].Load("resource/level/four.lvl", this->width, this->height * 0.5f);
+    this->Lives = 3;
 }
 
 void Game::ResetPlayer()
@@ -170,7 +220,7 @@ void Game::render()
 {
 	/*Renderer->DrawSprite(ResourceManager::GetTexture("face"), glm::vec2(200, 200), glm::vec2(300, 400), 45.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 	*/
-	if(this->state == GAME_ACTIVE)
+	if(this->state == GAME_ACTIVE || this->state == GAME_MENU)
 	{
 
 		Effects->BeginRender();
@@ -193,7 +243,25 @@ void Game::render()
 
         Effects->EndRender();
         Effects->Render(glfwGetTime());
+
+        std::stringstream ss;
+        ss<<this->Lives;
+        Text->RenderText("Lives:" + ss.str(), 5.0f, 5.0f, 1.0f);
 	}
+	if (this->state == GAME_MENU)
+    {
+        Text->RenderText("Press ENTER to start", 250.0f, this->height / 2, 1.0f);
+        Text->RenderText("Press W or S to select level", 245.0f, this->height / 2 + 20.0f, 0.75f);
+    }
+    if (this->state == GAME_WIN)
+    {
+        Text->RenderText(
+            "You WON!!!", 320.0, this->height / 2 - 20.0, 1.0, glm::vec3(0.0, 1.0, 0.0)
+        );
+        Text->RenderText(
+            "Press ENTER to retry or ESC to quit", 130.0, this->height / 2, 1.0, glm::vec3(1.0, 1.0, 0.0)
+        );
+    }
 }
 
 Direction VectorDirection(glm::vec2 target)
@@ -271,6 +339,7 @@ static void ActivatePowerUp(PowerUp &powerup);
 
 void Game::DoCollisions()
 {
+	//球和目标的碰撞
 	for(GameObject &box : this->Levels[this->Level].Bricks)
 	{
 		if(!box.destroyed) 
