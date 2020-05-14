@@ -1,0 +1,3 @@
+D:/git_hub/OpenGL/my_game/aircraft/build/CMakeFiles/aircraft.dir
+D:/git_hub/OpenGL/my_game/aircraft/build/CMakeFiles/edit_cache.dir
+D:/git_hub/OpenGL/my_game/aircraft/build/CMakeFiles/rebuild_cache.dir

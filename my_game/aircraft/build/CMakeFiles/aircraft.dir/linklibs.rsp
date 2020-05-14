@@ -1,0 +1,1 @@
+-lglut32 -lglew32 -Wl,-Bstatic -lglfw3dll -lglad -lopengl32 -Wl,-Bdynamic -lfreetype -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
