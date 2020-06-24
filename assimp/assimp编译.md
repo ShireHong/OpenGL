@@ -49,10 +49,10 @@
 	[opencv解决方案](https://stackoverflow.com/questions/41930349/opencv-installation-error-while-mingw32-make-on-windows)
 	直接截图：
 	
-    	<img src="https://https://github.com/ShireHong/OpenGL/edit/master/assimp/CRITICAL_SECTION1.png"  
+    	<img src="https://github.com/ShireHong/OpenGL/blob/master/assimp/CRITICAL_SECTION1.png"  
     	alt="图片加载失败时，显示这段字"/>
 	
-	<img src="https://https://github.com/ShireHong/OpenGL/edit/master/assimp/CRITICAL_SECTION1.png"  
+	<img src="https://github.com/ShireHong/OpenGL/blob/master/assimp/CRITICAL_SECTION1.png"  
     	alt="图片加载失败时，显示这段字"/>
 
 
