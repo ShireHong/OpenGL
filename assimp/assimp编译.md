@@ -48,7 +48,12 @@
 	- gtest-port.cc中的CRITICAL_SECTION报错的问题，这个问题issue上也有报，但不知道怎么解决的，可能我没有仔细去看，我借鉴了网上
 	[opencv解决方案](https://stackoverflow.com/questions/41930349/opencv-installation-error-while-mingw32-make-on-windows)
 	直接截图：
-    
+	
+    	<img src="https://https://github.com/ShireHong/OpenGL/edit/master/assimp/CRITICAL_SECTION1.png"  
+    	alt="图片加载失败时，显示这段字"/>
+	
+	<img src="https://https://github.com/ShireHong/OpenGL/edit/master/assimp/CRITICAL_SECTION1.png"  
+    	alt="图片加载失败时，显示这段字"/>
 
 
  ### assimp编译环境
