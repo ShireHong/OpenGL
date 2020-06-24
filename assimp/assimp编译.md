@@ -51,13 +51,13 @@
 	
 	 - 第一部分：
 
-    	<img src="https://github.com/ShireHong/OpenGL/blob/master/assimp/CRITICAL_SECTION1.png" width="639" height="228"  
+    	<div align=center><img src="https://github.com/ShireHong/OpenGL/blob/master/assimp/CRITICAL_SECTION1.png" width="639" height="228"  
     	alt="图片加载失败时，显示这段字"/>
 	
 	
 	 - 第二部分：
 
-	<img src="https://github.com/ShireHong/OpenGL/blob/master/assimp/CRITICAL_SECTION2.png" width="441" height="98"  
+	<div align=center><img src="https://github.com/ShireHong/OpenGL/blob/master/assimp/CRITICAL_SECTION2.png" width="441" height="98"  
     	alt="图片加载失败时，显示这段字"/>
 
 
