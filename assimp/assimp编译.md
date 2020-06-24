@@ -19,7 +19,38 @@
 	#endif
 
 	```
+
 	更换为
-	```
 	
 	```
+	#if 1
+		#define _WIN32_IE	0x0500
+	#endif
+
+	```
+
+    - commoncontrols.h 找不到的问题，我只是把这个用commctrl.h替换掉了。之后就没有报错了。
+
+    - timeapi.h报错的问题，这个问题assimp的issue上也有解释，所以直接就跟着改。
+	将
+	```
+	#include<timeapi.h>
+	```
+	更换为
+	```
+	#ifdef __MINGW32__
+		#include <mmsystem.h>
+	#else
+ 		#include <timeapi.h>
+	#endif
+	```
+
+	- gtest-port.cc中的CRITICAL_SECTION报错的问题，这个问题issue上也有报，但不知道怎么解决的，可能我没有仔细去看，我借鉴了网上
+	[opencv解决方案](https://stackoverflow.com/questions/41930349/opencv-installation-error-while-mingw32-make-on-windows)
+	直接截图：
+    
+
+
+ ### assimp编译环境
+
+   真正编译的时候会有其他问题，其他问题基本上解决方法比较一致，可以参照网上的解决方案，编译完成后，把lib库放在mingw的库中，就OK了。
