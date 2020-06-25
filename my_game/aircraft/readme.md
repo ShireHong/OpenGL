@@ -4,3 +4,5 @@
 
     
 ![aircraft](https://github.com/ShireHong/OpenGL/blob/master/my_game/aircraft/aircraft.gif)
+
+里面还有个小人
