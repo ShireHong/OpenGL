@@ -4,7 +4,7 @@ cmake_policy(VERSION 2.8)
 
 # 项目信息
 
-project (aircraft)
+project(map_reserch)
 
 #CMAKE_SOURCE_DIR 当前的绝对路径
 MESSAGE(STATUS "This is CMAKE_SOURCE_DIR " ${CMAKE_SOURCE_DIR})
@@ -37,7 +37,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/include )
 aux_source_directory(src DIR_SRCS)
 
 #生成可执行文件
-add_executable(aircraft ${DIR_SRCS})
+add_executable(map_reserch ${DIR_SRCS})
 
 #编译需要链接的库
-target_link_libraries(aircraft ${LIBS})
+target_link_libraries(map_reserch ${LIBS})

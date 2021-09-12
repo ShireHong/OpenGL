@@ -5,12 +5,16 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
-#include "plane_object.h"
 #include <vector>
 #include <tuple>
 
 
 #define MAP_VELOCITY   80
+
+
+const glm::vec2 ARROW_SIZE(32, 32);
+
+
 
 
 /*
@@ -32,19 +36,17 @@ enum Direction{
 	LEFT
 };
 
-typedef tuple<GLboolean, Direction, glm::vec2> Collision;
+struct MapBlock{
+	string    Name;
+	glm::vec2 Position;
+	
 
+	MapBlock(string name, glm::vec2 pos)
+		: Name(name),Position(pos)
+	{
 
-// Initial size of the player paddle
-const glm::vec2 PLANE_SIZE(120, 80);
-// Initial velocity of the player paddle
-const glm::vec2 PLANE_VELOCITY(300, 300);
-
-const glm::vec2 ENEMY_VELOCITY(0,150);
-// Initial velocity of the Ball
-const glm::vec2 INITIAL_BALL_VELOCITY(100.0f, -350.0f);
-// Radius of the ball object
-const GLfloat BALL_RADIUS = 12.5f;
+	}
+};
 
 // Game holds all game-related state and functionality.
 // Combines all game-related data into a single class for
@@ -55,14 +57,17 @@ public:
 	GameState  			State;
 	GLboolean         	Keys[1024];
 	GLboolean 			KeysProcessed[1024];
+	GLboolean         	MouseButton;
+	GLboolean 			MouseButtonProcessed;
 	unsigned int 		Width;
 	unsigned int 		Height;
-
-	GLfloat             Map_y;
-
-	vector<PlaneObject> enemys;
-
 	
+	GLfloat             cursorx;
+	GLfloat             cursory;
+
+	vector<MapBlock>    MapGroup;
+	GLuint              MapRow;
+	GLuint              MapColumn;
 
 	Game(unsigned int w, unsigned int h);
 	~Game(); 
@@ -70,9 +75,7 @@ public:
 	void ProcessInput(float dt);
 	void UpDate(float dt);
 	void Render(float dt);	
-
-	void EnemyUpdate(float dt);
-	void DoCollisions();
+    void ProcessMouseMove(float xpos, float ypos);
 };
 
 #endif

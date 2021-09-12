@@ -7,13 +7,15 @@
 
 #include "game.h"
 #include "resource_manage.h"
-
+#include "cursor.h"
 #include <iostream>
 
-
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mode);
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 
-const unsigned int SCR_WIDTH = 900;
+const unsigned int SCR_WIDTH = 1200;
 const unsigned int SCR_HEIGHT = 900;
 
 Game MyGame(SCR_WIDTH, SCR_HEIGHT); 
@@ -30,13 +32,15 @@ int main()
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
     // glfw window creation
     // --------------------
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "breakout", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "HOOZ", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         return -1;
     }
+	
+	glfwSetWindowPos(window, 50, 50);
     glfwMakeContextCurrent(window);
     glewExperimental = GL_TRUE;
     glewInit();
@@ -44,15 +48,27 @@ int main()
 
     // glad: load all OpenGL function pointers
     // ---------------------------------------
-   
-
+    
+    //glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetScrollCallback(window, scroll_callback);
+	    // tell GLFW to capture our mouse
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		
     glfwSetKeyCallback(window, key_callback);
+	glfwSetMouseButtonCallback(window,mouse_button_callback);
+	
      // OpenGL configuration
     glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
     glEnable(GL_CULL_FACE);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+	double xx,yy;
+	glfwSetCursorPos(window, SCR_WIDTH/2, SCR_HEIGHT/2);
+	glfwGetCursorPos(window, &xx, &yy);
+
+	//cout<<xx<<"---"<<yy<<endl;
 
     MyGame.Init();
 
@@ -110,3 +126,50 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
         }
     }
 }
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mode)
+{
+	if(button == GLFW_MOUSE_BUTTON_LEFT)
+	{		
+		if (action == GLFW_PRESS)
+		{
+	        MyGame.MouseButton = GL_TRUE;		
+		}
+	    else if (action == GLFW_RELEASE)
+	    {
+	        MyGame.MouseButton = GL_FALSE;
+	        MyGame.MouseButtonProcessed = GL_FALSE;
+	    }
+	}
+}
+
+void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+{
+	double xx,yy;
+	glfwGetCursorPos(window, &xx, &yy);
+	//cout<<xx<<"---"<<yy<<endl;
+#if 1
+	if(xx < 0 || xx > SCR_WIDTH || yy < 0|| yy > SCR_HEIGHT)
+	{
+		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+	}
+	else if(xx >= 0 && xx <= SCR_WIDTH)
+	{
+		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		
+		MyGame.ProcessMouseMove(xx, yy);
+	}
+	else if(yy >=0 && yy <= SCR_HEIGHT)
+	{
+		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		
+		MyGame.ProcessMouseMove(xx, yy);
+	}
+#endif
+}
+
+// glfw: whenever the mouse scroll wheel scrolls, this callback is called
+// ----------------------------------------------------------------------
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{
+}
+
