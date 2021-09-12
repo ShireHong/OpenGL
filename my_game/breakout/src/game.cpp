@@ -399,6 +399,7 @@ void Game::DoCollisions()
         GLfloat percentage = distance / (Player->size.x / 2);
         // 依据结果移动
         GLfloat strength = 2.0f;
+		/*球的速度会根据碰撞来变化，横坐标是根据打在挡板的位置，纵坐标是取反*/
         glm::vec2 oldVelocity = Ball->velocity;
         Ball->velocity.x = INITIAL_BALL_VELOCITY.x * percentage * strength; 
         Ball->velocity.y = -Ball->velocity.y;
